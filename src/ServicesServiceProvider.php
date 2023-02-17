@@ -1,10 +1,10 @@
 <?php
 
-namespace QRFeedz\Backend;
+namespace QRFeedz\Services;
 
 use Illuminate\Support\ServiceProvider;
 
-class BackendServiceProvider extends ServiceProvider
+class ServicesServiceProvider extends ServiceProvider
 {
     public function boot()
     {
