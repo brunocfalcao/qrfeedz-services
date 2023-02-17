@@ -1,0 +1,43 @@
+{
+    "name": "brunocfalcao/qrfeedz-services",
+    "description": "QRFeedz - Services",
+    "keywords": [
+        "brunocfalcao",
+        "qrfeedz"
+    ],
+    "homepage": "https://github.com/brunocfalcao/brunocfalcao/qrfeedz-services",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Bruno Falcão",
+            "email": "bruno.c.falcao@brunofalcao.me",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/contracts": "^10.0",
+        "brunocfalcao/qrfeedz-authorization": "dev-master",
+        "brunocfalcao/qrfeedz-backend": "dev-master",
+        "brunocfalcao/qrfeedz-frontend": "dev-master",
+        "brunocfalcao/qrfeedz-cube": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "QRFeedz\\Services\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "QRFeedz\\Services\\ServicesServiceProvider"
+            ]
+        }
+    }
+}
