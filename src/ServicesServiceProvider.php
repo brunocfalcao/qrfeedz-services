@@ -3,7 +3,6 @@
 namespace QRFeedz\Services;
 
 use Illuminate\Support\ServiceProvider;
-use QRFeedz\Services\Commands\PintCommand;
 
 class ServicesServiceProvider extends ServiceProvider
 {
@@ -11,7 +10,7 @@ class ServicesServiceProvider extends ServiceProvider
     {
         /*
         $this->commands([
-            PintCommand::class
+            Reset::class
         ]);
         */
     }
