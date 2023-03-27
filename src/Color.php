@@ -7,39 +7,87 @@ use Spatie\Color\Hex;
 
 class Color
 {
-    public $primary;
+    protected $color;
 
-    public static function make(
-        string $color,
-    ) {
-        return new self($color);
-    }
-
-    public function __construct(
-        string $color,
-    ) {
-        // Main colors.
-        $this->color = Str::startsWith($color, '#') ? $color : '#'.$color;
-    }
-
-    public function complementary()
+    public static function make(string $color)
     {
-        $color = Hex::fromString($this->color);
-        return $color->complementary()->toHex();
+        return (new self())->apply($color);
     }
 
+    public function __construct()
+    {
+        //
+    }
+
+    public function apply(string $color)
+    {
+        $this->color = Hex::fromString(
+            Str::startsWith($color, '#') ? $color : '#'.$color
+        );
+
+        return $this;
+    }
+
+    /**
+     * Check if a color is light or dark.
+     * @return boolean
+     */
     public function isLight()
     {
-        return $this->color->toHsl()->getLuminance() > 0.5;
+        return $this->color
+                    ->toHsl()
+                    ->getLuminance() > 0.5;
     }
 
+    /**
+     * Check if a color is light or dark.
+     * @return boolean
+     */
     public function isDark()
     {
-        return $this->color->toHsl()->getLuminance() <= 0.5;
+        return $this->color
+                    ->toHsl()
+                    ->getLuminance() <= 0.5;
     }
 
-    public function is()
+    /**
+     * Returns a darken color.
+     *
+     * @param  int    $percentage
+     * @return string
+     */
+    public function darken(int $percentage)
     {
-        return $this->isDark() ? 'dark' : 'light';
+        return $this->color
+                    ->darken($percentage)
+                    ->toHex();
+    }
+
+    /**
+     * Returns a lighter color.
+     *
+     * @param  int    $percentage
+     * @return string
+     */
+    public function lighten(int $percentage)
+    {
+        return $this->color
+                    ->lighten($percentage)
+                    ->toHex();
+    }
+
+    public function __get($name)
+    {
+        return $this->$name();
+    }
+
+    protected function complementary()
+    {
+        return (string) $this->color->complementary()->toHex();
+    }
+
+    protected function original()
+    {
+        return (string) $this->color->toHex();
     }
 }
