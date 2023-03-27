@@ -17,6 +17,7 @@
     ],
     "require": {
         "php": "^8.1",
+        "spatie/color": "^1.5",
         "illuminate/contracts": "^10.0",
         "brunocfalcao/qrfeedz-authorization": "dev-master",
         "brunocfalcao/qrfeedz-cube": "dev-master"
