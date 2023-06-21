@@ -18,6 +18,7 @@
     "require": {
         "php": "^8.1",
         "illuminate/contracts": "^10.0",
+        "brunocfalcao/qrfeedz-foundation": "dev-master",
         "brunocfalcao/qrfeedz-authorization": "dev-master",
         "brunocfalcao/qrfeedz-cube": "dev-master",
         "mexitek/phpcolors": "dev-master",

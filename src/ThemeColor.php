@@ -3,7 +3,6 @@
 namespace QRFeedz\Services;
 
 use Mexitek\PHPColors\Color;
-use QRFeedz\Cube\Models\Questionnaire;
 
 class ThemeColor
 {
