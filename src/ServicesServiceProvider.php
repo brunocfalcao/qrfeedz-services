@@ -3,10 +3,11 @@
 namespace QRFeedz\Services;
 
 use Illuminate\Support\Facades\Event;
-use Illuminate\Support\ServiceProvider;
-use QRFeedz\Cube\Events\Courses\UserCreated;
+use QRFeedz\Cube\Events\Users\UserCreated;
+use QRFeedz\Foundation\Abstracts\QRFeedzServiceProvider;
+use QRFeedz\Services\Listeners\Users\TriggerUserCreatedProcess;
 
-class ServicesServiceProvider extends ServiceProvider
+class ServicesServiceProvider extends QRFeedzServiceProvider
 {
     public function boot()
     {
@@ -21,12 +22,10 @@ class ServicesServiceProvider extends ServiceProvider
 
     protected function registerListeners()
     {
-        /*
         Event::listen(
             UserCreated::class,
-            [SendUserCreatedNotification::class, 'handle']
+            [TriggerUserCreatedProcess::class, 'handle']
         );
-        */
     }
 
     protected function overrideResources()
