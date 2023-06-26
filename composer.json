@@ -17,12 +17,14 @@
     ],
     "require": {
         "php": "^8.1",
+        "spatie/once": "^3.1",
+        "symfony/http-client": "*",
+        "symfony/postmark-mailer": "*",
         "illuminate/contracts": "^10.0",
-        "brunocfalcao/qrfeedz-foundation": "dev-master",
-        "brunocfalcao/qrfeedz-authorization": "dev-master",
-        "brunocfalcao/qrfeedz-cube": "dev-master",
         "mexitek/phpcolors": "dev-master",
-        "spatie/once": "^3.1"
+        "brunocfalcao/qrfeedz-cube": "dev-master",
+        "brunocfalcao/qrfeedz-foundation": "dev-master",
+        "brunocfalcao/qrfeedz-authorization": "dev-master"
     },
     "autoload": {
         "psr-4": {

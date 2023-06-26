@@ -5,7 +5,7 @@ namespace QRFeedz\Services;
 use Illuminate\Support\Facades\Event;
 use QRFeedz\Cube\Events\Users\UserCreated;
 use QRFeedz\Foundation\Abstracts\QRFeedzServiceProvider;
-use QRFeedz\Services\Listeners\Users\TriggerUserCreatedProcess;
+use QRFeedz\Services\Listeners\Users\TriggerUserCreationProcess;
 
 class ServicesServiceProvider extends QRFeedzServiceProvider
 {
@@ -13,6 +13,7 @@ class ServicesServiceProvider extends QRFeedzServiceProvider
     {
         $this->overrideResources();
         $this->registerListeners();
+        $this->loadViews();
     }
 
     public function register()
@@ -20,11 +21,19 @@ class ServicesServiceProvider extends QRFeedzServiceProvider
         //
     }
 
+    protected function loadViews()
+    {
+        $this->loadViewsFrom(
+            __DIR__.'/../resources/views',
+            'qrfeedz-services'
+        );
+    }
+
     protected function registerListeners()
     {
         Event::listen(
             UserCreated::class,
-            [TriggerUserCreatedProcess::class, 'handle']
+            [TriggerUserCreationProcess::class, 'handle']
         );
     }
 
