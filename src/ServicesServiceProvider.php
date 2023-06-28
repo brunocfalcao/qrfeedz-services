@@ -11,9 +11,9 @@ class ServicesServiceProvider extends QRFeedzServiceProvider
 {
     public function boot()
     {
+        $this->loadViews();
         $this->overrideResources();
         $this->registerListeners();
-        $this->loadViews();
     }
 
     public function register()
