@@ -1,10 +1,7 @@
 <x-mail::message :preview="$preview">
-# Order Shipped
 
-Your order has been shipped!
-
-<x-mail::button :url="$url">
-View Order
+<x-mail::button>
+Reset your password
 </x-mail::button>
 
 Thanks,<br>

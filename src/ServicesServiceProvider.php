@@ -14,12 +14,18 @@ class ServicesServiceProvider extends QRFeedzServiceProvider
         $this->loadViews();
         $this->overrideResources();
         $this->registerListeners();
+        $this->loadTranslations();
         $this->loadRoutes();
     }
 
     public function register()
     {
         //
+    }
+
+    protected function loadTranslations()
+    {
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'qrfeedz');
     }
 
     protected function loadRoutes()
