@@ -6,5 +6,4 @@ use QRFeedz\Cube\Models\User;
 
 class UserEntity extends User
 {
-
 }

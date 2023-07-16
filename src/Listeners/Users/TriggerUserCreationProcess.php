@@ -22,7 +22,6 @@ class TriggerUserCreationProcess implements ShouldQueue
          * 1. Create a password reset link.
          * 2. Send a notification email.
          **/
-
         $user = $event->user;
 
         $link = $user->passwordReset();
