@@ -5,7 +5,7 @@ namespace QRFeedz\Services;
 use Illuminate\Support\Facades\Event;
 use QRFeedz\Cube\Events\Users\UserCreated;
 use QRFeedz\Foundation\Abstracts\QRFeedzServiceProvider;
-use QRFeedz\Services\Listeners\Users\TriggerUserCreationProcess;
+use QRFeedz\Services\Listeners\Users\Onboard;
 
 class ServicesServiceProvider extends QRFeedzServiceProvider
 {
@@ -47,7 +47,7 @@ class ServicesServiceProvider extends QRFeedzServiceProvider
     {
         Event::listen(
             UserCreated::class,
-            [TriggerUserCreationProcess::class, 'handle']
+            [Onboard::class, 'handle']
         );
     }
 

@@ -10,9 +10,12 @@ class WelcomeToQRFeedz extends QRFeedzMail
     public function __construct(User $user)
     {
         $this->notifiable = $user;
-        $this->subject = 'This is a test mail';
+        $this->subject = __('qrfeedz::users.onboard.subject') .'!';
+        $this->preview = 'We are happy to have you onboard';
         $this->markdown = 'qrfeedz-services::mail.users.welcome';
-        $this->data = [];
+        $this->data = [
+            'header' => 'QRFeedz2'
+        ];
     }
 
     public function attachments(): array
