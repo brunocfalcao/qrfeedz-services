@@ -7,7 +7,7 @@
 
 </x-mail::paragraph>
 
-<x-mail::button>
+<x-mail::button :url="$url">
 {{ __('qrfeedz::defaults.reset-your-password') }}
 </x-mail::button>
 
