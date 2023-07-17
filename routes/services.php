@@ -14,7 +14,7 @@ Route::get('/password-reset/{token}', [
 Route::get('/mailable', function () {
     $user = User::find(1);
 
-    return new WelcomeToQRFeedz($user, ['url' => '#']);
+    return new WelcomeToQRFeedz($user, ['url' => 'https://www.publico.pt']);
 });
 
 Route::get('/templates/{template}', function (string $template) {

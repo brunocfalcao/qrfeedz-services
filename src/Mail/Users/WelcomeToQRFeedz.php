@@ -13,10 +13,6 @@ class WelcomeToQRFeedz extends QRFeedzMail
         $this->preview = 'We are happy to have you onboard';
         $this->markdown = 'qrfeedz-services::mail.users.welcome';
 
-        $this->data = [
-            'header' => 'QRFeedz',
-        ];
-
         parent::__construct($user, $data);
     }
 

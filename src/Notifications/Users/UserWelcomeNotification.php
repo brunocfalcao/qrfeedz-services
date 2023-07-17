@@ -7,9 +7,16 @@ use QRFeedz\Services\Mail\Users\WelcomeToQRFeedz;
 
 class UserWelcomeNotification extends QRFeedzNotification
 {
-    public function toMail(object $notifiable, string $resetLink)
+    public $resetLink;
+
+    public function __construct(string $resetLink)
     {
-        return (new WelcomeToQRFeedz($notifiable, $resetLink))
+        $this->resetLink = $resetLink;
+    }
+
+    public function toMail(object $notifiable)
+    {
+        return (new WelcomeToQRFeedz($notifiable, ['url' => $this->resetLink]))
                ->from('me@brunofalcao.dev')
                ->to('bruno.falcao@live.com');
     }
