@@ -13,6 +13,7 @@ Route::get('/password-reset/{token}', [
 /** ---------- TEST ROUTES ----------------- */
 Route::get('/mailable', function () {
     $user = User::find(1);
+
     return new WelcomeToQRFeedz($user, ['url' => '#']);
 });
 

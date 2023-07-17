@@ -2,5 +2,5 @@
 
 return [
     'hi-there' => 'hi there',
-    'reset-your-password' => 'Reset your password'
+    'reset-your-password' => 'Reset your password',
 ];

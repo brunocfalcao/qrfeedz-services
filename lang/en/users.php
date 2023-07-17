@@ -12,6 +12,6 @@ To start, you need to reset your password.
 
 Just click on the button below to start the process.',
 
-        'sub-text' => 'For any questions or clarifications, feel free to reach us on the email [here](mailto::contact@qrfeedz.ch).'
-    ]
-    ];
+        'sub-text' => 'For any questions or clarifications, feel free to reach us on the email [here](mailto::contact@qrfeedz.ch).',
+    ],
+];

@@ -20,7 +20,6 @@ class Onboard implements ShouldQueue
          * 1. Create a password reset link.
          * 2. Send a welcome + reset password notification email.
          **/
-
         $resetPasswordLink = $event->user->getPasswordResetLink(true);
         $event->user->notify(new UserWelcomeNotification($resetPasswordLink));
     }
