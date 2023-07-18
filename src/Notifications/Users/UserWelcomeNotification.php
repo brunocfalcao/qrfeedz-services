@@ -17,7 +17,10 @@ class UserWelcomeNotification extends QRFeedzNotification
     public function toMail(object $notifiable)
     {
         return (new WelcomeToQRFeedz($notifiable, ['url' => $this->resetLink]))
-               ->from('me@brunofalcao.dev')
-               ->to('bruno.falcao@live.com');
+               ->from(
+                   config('qrfeedz.system.mails.contact.email'),
+                   config('qrfeedz.system.mails.contact.name')
+               )
+               ->to($notifiable->email);
     }
 }
