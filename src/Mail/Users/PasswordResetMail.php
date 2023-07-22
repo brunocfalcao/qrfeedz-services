@@ -5,7 +5,7 @@ namespace QRFeedz\Services\Mail\Users;
 use QRFeedz\Cube\Models\User;
 use QRFeedz\Foundation\Abstracts\QRFeedzMail;
 
-class PasswordResetNotification extends QRFeedzMail
+class PasswordResetMail extends QRFeedzMail
 {
     public function __construct(User $user, array $data = [])
     {

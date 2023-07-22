@@ -1,6 +1,6 @@
 <?php
 
-namespace QRFeedz\Services\Jobs;
+namespace QRFeedz\Services\Jobs\Users;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -9,6 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use QRFeedz\Cube\Models\User;
+use QRFeedz\Services\Mail\Users\PasswordResetMail;
 
 class ResetUserPasswordJob implements ShouldQueue
 {
@@ -27,6 +28,6 @@ class ResetUserPasswordJob implements ShouldQueue
         $resetLink = $user->getPasswordResetLink(true, false);
 
         Mail::to($user)
-            ->queue(new PasswordResetEmail($user));
+            ->send(new PasswordResetMail($user));
     }
 }
