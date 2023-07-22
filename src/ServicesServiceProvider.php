@@ -2,10 +2,7 @@
 
 namespace QRFeedz\Services;
 
-use Illuminate\Support\Facades\Event;
-use QRFeedz\Cube\Events\Users\UserCreated;
 use QRFeedz\Foundation\Abstracts\QRFeedzServiceProvider;
-use QRFeedz\Services\Listeners\Users\Onboard;
 
 class ServicesServiceProvider extends QRFeedzServiceProvider
 {
@@ -13,7 +10,6 @@ class ServicesServiceProvider extends QRFeedzServiceProvider
     {
         $this->loadViews();
         $this->overrideResources();
-        $this->registerListeners();
         $this->loadTranslations();
         $this->loadRoutes();
     }
@@ -40,14 +36,6 @@ class ServicesServiceProvider extends QRFeedzServiceProvider
         $this->loadViewsFrom(
             __DIR__.'/../resources/views',
             'qrfeedz-services'
-        );
-    }
-
-    protected function registerListeners()
-    {
-        Event::listen(
-            UserCreated::class,
-            [Onboard::class, 'handle']
         );
     }
 
