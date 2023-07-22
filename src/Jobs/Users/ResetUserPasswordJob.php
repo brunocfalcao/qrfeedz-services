@@ -7,22 +7,26 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Mail;
 use QRFeedz\Cube\Models\User;
 
 class ResetUserPasswordJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $user;
+    public $userId;
 
-    public function __construct(User $user)
+    public function __construct(int $userId)
     {
-        $this->user = $user->withoutRelations();
+        $this->userId = $userId;
     }
 
     public function handle(): void
     {
-        $resetLink = $this->user->getPasswordResetLink(true, false);
-        $user->notify(new UserWelcomeNotification($resetLink));
+        $user = User::find($this->userId);
+        $resetLink = $user->getPasswordResetLink(true, false);
+
+        Mail::to($user)
+            ->queue(new PasswordResetEmail($user));
     }
 }
