@@ -9,8 +9,8 @@ class ResetUserPasswordMail extends QRFeedzMail
 {
     public function __construct(User $user, array $data = [])
     {
-        $this->localFilename = 'reset-user-password';
-        $this->markdown = 'qrfeedz-services::mail.users.reset-user-password';
+        $this->localeFilename = 'reset-user-password';
+        $this->markdown = 'mail.users.reset-user-password';
 
         parent::__construct($user, $data);
     }

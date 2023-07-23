@@ -31,7 +31,6 @@ class ResetUserPasswordJob implements ShouldQueue
         $resetLink = $user->getPasswordResetLink($this->invalidate);
 
         Mail::to($user)
-            ->locale('fr')
             ->send(new ResetUserPasswordMail(
                 $user,
                 ['invalidate' => $this->invalidate]
