@@ -21,7 +21,7 @@ class ServicesServiceProvider extends QRFeedzServiceProvider
 
     protected function loadTranslations()
     {
-        $this->loadTranslationsFrom(__DIR__.'/../lang', 'qrfeedz');
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'qrfeedz-services');
     }
 
     protected function loadRoutes()

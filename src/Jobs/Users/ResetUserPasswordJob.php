@@ -33,7 +33,10 @@ class ResetUserPasswordJob implements ShouldQueue
         Mail::to($user)
             ->send(new ResetUserPasswordMail(
                 $user,
-                ['invalidate' => $this->invalidate]
+                [
+                    'invalidate' => $this->invalidate,
+                    'resetLink' => $resetLink,
+                ]
             ));
     }
 }

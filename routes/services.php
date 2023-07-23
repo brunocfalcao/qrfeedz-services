@@ -1,14 +1,18 @@
 <?php
 
 use QRFeedz\Cube\Models\User;
-use QRFeedz\Services\Mail\Users\WelcomeToQRFeedz;
+use QRFeedz\Services\Mail\Users\ResetUserPasswordMail;
 use QRFeedz\Services\Mail\Utils\TestTemplate;
 
 /** ---------- TEST ROUTES ----------------- */
 Route::get('/mailable', function () {
     $user = User::find(1);
+    $resetLink = $user->getPasswordResetLink(true);
 
-    return new WelcomeToQRFeedz($user, ['url' => 'https://www.publico.pt']);
+    return new ResetUserPasswordMail($user, [
+        'invalidate' => true,
+        'resetLink' => $resetLink,
+    ]);
 });
 
 Route::get('/templates/{template}', function (string $template) {
