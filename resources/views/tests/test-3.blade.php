@@ -75,34 +75,10 @@
             <td style="height: 30px;"></td>
         </tr>
 
-        <!-- Subcopy -->
-        <tr>
-            <td>
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td style="padding: 0 20px; line-height: 1.3; font-size: 0.8rem;">
-                            <p>This is an example subcopy component with a smaller font size.</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
-        <!-- Vertical Spacer -->
-        <tr>
-            <td style="height: 30px;"></td>
-        </tr>
-
         <!-- Button -->
         <tr>
             <td align="center" style="padding: 15px 30px;">
-                <table border="0" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td align="center" style="background-color: #007bff; border-radius: 5px;">
-                            <a href="#" style="display: block; padding: 10px 20px; color: #ffffff; text-decoration: none;">Click me</a>
-                        </td>
-                    </tr>
-                </table>
+                <a href="https://yourwebsite.com" style="background-color: #007bff; color: #ffffff; display: inline-block; text-decoration: none; border-radius: 5px;">Click Me</a>
             </td>
         </tr>
 

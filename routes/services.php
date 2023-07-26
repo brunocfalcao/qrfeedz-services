@@ -18,3 +18,9 @@ Route::get('/mailable', function () {
 Route::get('/templates/{template}', function (string $template) {
     return new TestTemplate($template);
 });
+
+Route::redirect(
+    '/contact-us',
+    'mailto:contact@qrfeedz.ch'
+)
+     ->name('qrfeedz.contact-us');
