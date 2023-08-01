@@ -13,13 +13,13 @@ class ResetUserPasswordJob extends QRFeedzJob
 
     public $invalidate;
 
-    public function __construct(int $userId, $invalidatePassword = false)
+    public function __construct(int $userId, bool $invalidatePassword = false)
     {
         $this->userId = $userId;
         $this->invalidate = $invalidatePassword;
     }
 
-    public function handle(): void
+    public function handle()
     {
         $user = User::find($this->userId);
         $resetLink = $user->getPasswordResetLink($this->invalidate);
