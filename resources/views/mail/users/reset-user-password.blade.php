@@ -1,27 +1,27 @@
 <x-mail::message :preview="$preview" :subject="$subject">
 
 <x-mail::paragraph>
-@lang('qrfeedz-services::reset-user-password.salutation', ['name' => $notifiable->name]),
+@lang('qrfeedz-services::reset-user-password.email-reset-password-requested.salutation', ['name' => $notifiable->name]),
 </x-mail::paragraph>
 
 
 <x-mail::paragraph>
-@lang('qrfeedz-services::reset-user-password.paragraph-1')
+@lang('qrfeedz-services::reset-user-password.email-reset-password-requested.paragraph-1')
 </x-mail::paragraph>
 
 <x-mail::paragraph>
-@lang('qrfeedz-services::reset-user-password.paragraph-2')
+@lang('qrfeedz-services::reset-user-password.email-reset-password-requested.paragraph-2')
 </x-mail::paragraph>
 
 <x-mail::button :url="$resetLink">
-@lang('qrfeedz-services::reset-user-password.button')
+@lang('qrfeedz-services::reset-user-password.email-reset-password-requested.button')
 </x-mail::button>
 
 <x-mail::subcopy>
 @if($invalidate)
-@lang('qrfeedz-services::reset-user-password.subcopy-mandatory')
+@lang('qrfeedz-services::reset-user-password.email-reset-password-requested.subcopy-mandatory')
 @else
-@lang('qrfeedz-services::reset-user-password.subcopy-optional')
+@lang('qrfeedz-services::reset-user-password.email-reset-password-requested.subcopy-optional')
 @endif
 </x-mail::subcopy>
 
