@@ -3,7 +3,6 @@
 namespace QRFeedz\Services;
 
 use QRFeedz\Foundation\Abstracts\QRFeedzServiceProvider;
-use QRFeedz\Services\DomainPatternIdentifier;
 
 class ServicesServiceProvider extends QRFeedzServiceProvider
 {
