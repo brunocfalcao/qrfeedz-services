@@ -12,12 +12,6 @@ class ServicesServiceProvider extends QRFeedzServiceProvider
         $this->loadViews();
         $this->overrideResources();
         $this->loadTranslations();
-        $this->loadRoutes();
-
-
-        if (!app()->runningInConsole()) {
-            dd(DomainPatternIdentifier::parts(request()->fullUrl()));
-        }
     }
 
     public function register()
@@ -28,13 +22,6 @@ class ServicesServiceProvider extends QRFeedzServiceProvider
     protected function loadTranslations()
     {
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'qrfeedz-services');
-    }
-
-    protected function loadRoutes()
-    {
-        $this->loadRoutesFrom(
-            __DIR__.'/../routes/services.php'
-        );
     }
 
     protected function loadViews()
