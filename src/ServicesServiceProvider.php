@@ -3,6 +3,7 @@
 namespace QRFeedz\Services;
 
 use QRFeedz\Foundation\Abstracts\QRFeedzServiceProvider;
+use QRFeedz\Services\DomainPatternIdentifier;
 
 class ServicesServiceProvider extends QRFeedzServiceProvider
 {
@@ -12,6 +13,11 @@ class ServicesServiceProvider extends QRFeedzServiceProvider
         $this->overrideResources();
         $this->loadTranslations();
         $this->loadRoutes();
+
+
+        if (!app()->runningInConsole()) {
+            dd(DomainPatternIdentifier::parts(request()->fullUrl()));
+        }
     }
 
     public function register()
