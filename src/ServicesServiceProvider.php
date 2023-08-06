@@ -3,6 +3,7 @@
 namespace QRFeedz\Services;
 
 use QRFeedz\Foundation\Abstracts\QRFeedzServiceProvider;
+use QRFeedz\Services\Utils\QRFeedz;
 
 class ServicesServiceProvider extends QRFeedzServiceProvider
 {
@@ -15,7 +16,9 @@ class ServicesServiceProvider extends QRFeedzServiceProvider
 
     public function register()
     {
-        //
+        $this->app->bind('services-qrfeedz', function ($app) {
+            return new QRFeedz();
+        });
     }
 
     protected function loadTranslations()

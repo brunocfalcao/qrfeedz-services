@@ -41,7 +41,10 @@
         "laravel": {
             "providers": [
                 "QRFeedz\\Services\\ServicesServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "QRFeedz": "QRFeedz\\Services\\Facades\\QRFeedz"
+            }
         }
     }
 }

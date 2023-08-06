@@ -23,13 +23,14 @@ class ResetUserPasswordJob extends QRFeedzJob
     {
         $user = User::find($this->userId);
         $resetLink = $user->getPasswordResetLink($this->invalidate);
+        $email = $user->email;
 
         Mail::to($user)
             ->send(new ResetUserPasswordMail(
                 $user,
                 [
                     'invalidate' => $this->invalidate,
-                    'resetLink' => $resetLink,
+                    'resetLink' => $resetLink."?email={$email}",
                 ]
             ));
     }

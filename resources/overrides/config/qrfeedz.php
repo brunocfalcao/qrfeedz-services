@@ -4,6 +4,8 @@ return [
 
     'system' => [
 
+        'url' => env('QRFEEDZ_URL', 'https://{xxx}.qrfeedz.com'),
+
         /**
          * Should QRFeedz send notifications, globally speaking.
          * If it's on, then it will send all possible notifications.
