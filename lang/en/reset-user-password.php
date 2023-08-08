@@ -11,6 +11,6 @@ return [
         'paragraph-2' => 'Please click on the button below to start resetting it.',
         'button' => 'Reset your password',
         'subcopy-optional' => 'If you haven\'t requested a password reset, please ignore this email.',
-        'subcopy-mandatory' => 'Your password is currently invalid, it is mandatory that you reset your password to access QRFeedz.',
+        'subcopy-mandatory' => 'Your password is currently invalid, it is mandatory that you reset your password to access QRFeedz.'
     ],
 ];
