@@ -2,13 +2,18 @@
 
 namespace QRFeedz\Services;
 
+use Illuminate\Console\Scheduling\Schedule;
 use QRFeedz\Foundation\Abstracts\QRFeedzServiceProvider;
+use QRFeedz\Services\Jobs\System\CleanLogs;
 use QRFeedz\Services\Utils\QRFeedz;
 
 class ServicesServiceProvider extends QRFeedzServiceProvider
 {
-    public function boot()
+    public function boot(Schedule $schedule)
     {
+        // Schedule regular-executed jobs.
+        $schedule->job(new CleanLogs)->daily();
+
         $this->loadViews();
         $this->overrideResources();
         $this->loadTranslations();
