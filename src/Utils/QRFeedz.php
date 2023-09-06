@@ -21,7 +21,7 @@ class QRFeedz
         return str_replace(
             '{xxx}',
             $subdomain,
-            config('qrfeedz.system.url')
+            request()->getHost()
         ).'/'.$path;
     }
 }
