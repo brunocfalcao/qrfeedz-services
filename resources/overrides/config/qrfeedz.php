@@ -4,6 +4,23 @@ return [
 
     'system' => [
 
+        /**
+         * For each array value, it's a directory that when you run the
+         * command qrfeedz:publish, it will publish all the assets from the
+         * <package-value>/resources/override to the respective folder that
+         * is resources/<package-value>/assets. This way we can publish assets
+         * that will then be used in different frontend scenarios.
+         */
+        'publish' => [
+            'qrfeedz-admin',
+            'qrfeedz-frontend',
+            'qrfeedz-backend',
+        ],
+
+        /**
+         * Setting to be deprecated. A new logic to detect the domain needs
+         * to be created.
+         */
         'url' => env('QRFEEDZ_URL', 'https://{xxx}.qrfeedz.com'),
 
         /**
@@ -16,7 +33,7 @@ return [
          *           simultaneously.
          */
         'always_route' => [
-            'backend' => true,
+            'backend' => false,
             'frontend' => false,
             'testing' => true,
         ],
@@ -29,11 +46,19 @@ return [
 
         'mails' => [
 
+            /**
+             * System emails. No option to reply, like a forgot password
+             * notification email.
+             */
             'no_reply' => [
                 'name' => env('QRFEEDZ_NO_REPLY_EMAIL_NAME'),
                 'email' => env('QRFEEDZ_NO_REPLY_EMAIL_MAIL'),
             ],
 
+            /**
+             * Transactional email, with the option to reply, like a payment
+             * overdue notification.
+             */
             'contact' => [
                 'name' => env('QRFEEDZ_CONTACT_EMAIL_NAME'),
                 'email' => env('QRFEEDZ_CONTACT_EMAIL_MAIL'),
