@@ -8,6 +8,16 @@ class QRFeedz
     {
     }
 
+    public static function inFrontend()
+    {
+        return true;
+    }
+
+    public static function hasValidSessionId()
+    {
+        return true;
+    }
+
     /**
      * The url, is a dynamic url return given the chosen context you prefer.
      * It replaces the subdomain on a fixed configurable url.
