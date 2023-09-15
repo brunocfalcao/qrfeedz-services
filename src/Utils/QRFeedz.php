@@ -10,7 +10,7 @@ class QRFeedz
 
     public static function inFrontend()
     {
-        return true;
+        return false;
     }
 
     public static function hasValidSessionId()
