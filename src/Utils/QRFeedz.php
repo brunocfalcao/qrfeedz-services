@@ -8,6 +8,27 @@ class QRFeedz
 {
     public function __construct()
     {
+        //
+    }
+
+    public function inFrontend()
+    {
+        return $this->context() == 'frontend';
+    }
+
+    public function inBackend()
+    {
+        return $this->context() == 'backend';
+    }
+
+    public function inAdmin()
+    {
+        return $this->context() == 'admin';
+    }
+
+    public function inLandingPage()
+    {
+        return $this->context() == 'landing-page';
     }
 
     public function context()
