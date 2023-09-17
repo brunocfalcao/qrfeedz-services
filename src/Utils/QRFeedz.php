@@ -2,15 +2,31 @@
 
 namespace QRFeedz\Services\Utils;
 
+use Brunocfalcao\LaravelHelpers\Utils\DomainPatternIdentifier;
+
 class QRFeedz
 {
     public function __construct()
     {
     }
 
-    public static function inFrontend()
+    public function context()
     {
-        return false;
+        $subdomain = DomainPatternIdentifier::parseUrl()['subdomain'];
+
+        switch ($subdomain) {
+            case null:
+                return 'landing-page';
+
+            case 'admin':
+                return 'admin';
+
+            case 'backend':
+                return 'backend';
+
+            case 'qrcode':
+                return 'frontend';
+        }
     }
 
     public static function hasValidSessionId()
